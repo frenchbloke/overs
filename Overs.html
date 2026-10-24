@@ -356,7 +356,7 @@ return null}
 const got={};function swSay(){const k=Object.keys(got);$("swst").textContent=k.length?"Space weather: "+k.join(", ")+(gt?" · forecast "+gt+" UTC":"")+".":""}
 async function handle(f){const t=await f.text(),k=ingest(t);if(k){got[k]=1;try{localStorage.setItem("sw:"+k,JSON.stringify({t:Date.now(),text:t}))}catch(e){}swSay();$("sp").textContent="Loaded "+k+" from "+f.name.slice(0,24)+"."}else onFile(f)}
 const SWU=["json/ovation_aurora_latest.json","text/aurora-nowcast-hemi-power.txt","products/noaa-planetary-k-index.json","products/solar-wind/mag-2-hour.json","products/solar-wind/plasma-2-hour.json"];
-async function pull(){let n=0;for(const u of SWU){try{const r=await fetch("https://services.swpc.noaa.gov/"+u).catch(()=>null);if(!r)return;const t=await r.text(),k=ingest(t);if(k){got[k]=1;n++}}catch(e){}}
+async function pull(){let n=0;for(const u of SWU){try{const r=await fetch("https://services.swpc.noaa.gov/"+u).catch(()=>null);if(!r)continue;const t=await r.text(),k=ingest(t);if(k){got[k]=1;n++}}catch(e){}}
 if(n){$("sp").textContent="Live from NOAA SWPC.";swSay()}else if(!Object.keys(got).length)$("sp").textContent="Live feeds not reachable from this page: load the files below, or type Kp and wind speed. Unset means no solar influence."}
 for(const k of["aurora grid","hemispheric power","Kp","IMF Bz","solar wind"])try{const c=JSON.parse(localStorage.getItem("sw:"+k)||"null");if(c&&ingest(c.text)){got[k]=1;$("sp").textContent="Using saved files, "+((Date.now()-c.t)/36e5).toFixed(1)+" h old."}}catch(e){}
 swSay();$("swb").onclick=()=>$("swf").click();$("swf").onchange=e=>[...e.target.files].forEach(handle);
