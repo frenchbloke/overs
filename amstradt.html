@@ -25,8 +25,8 @@ main{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:1fr 1fr
 .panel p{margin:0;font-size:12px;opacity:.8;max-width:60ch}
 .row{display:flex;flex-wrap:nowrap;gap:6px 10px;align-items:center;min-height:0}
 .meter{display:block;height:5px;background:rgba(58,69,75,.15);border:1px solid var(--line);border-radius:2px;overflow:hidden;flex:1;min-width:40px}.meter i{display:block;height:100%;width:0;background:var(--amber)}
-.dial{--r:-135deg;width:48px;height:48px;border-radius:50%;background:#3A454B;box-shadow:none;position:relative;cursor:ns-resize;touch-action:none;flex:none;border:1.5px solid #FFFFFF}
-.dial::before{content:"";position:absolute;left:50%;top:5px;width:2.5px;height:8px;margin-left:-1.25px;background:#FFFFFF;border-radius:1.5px;transform-origin:50% 50%;transform:rotate(var(--r));box-shadow:0 0 2px #3A454B}
+.dial{--r:-135deg;width:48px;height:48px;border-radius:50%;background:#3A454B;box-shadow:none;position:relative;cursor:ns-resize;touch-action:none;flex:none;border:1.5px solid #FFFFFF;transform:rotate(var(--r));transform-origin:50% 50%}
+.dial::before{content:"";position:absolute;left:50%;top:4px;width:3px;height:18px;margin-left:-1.5px;background:#FFFFFF;border-radius:1.5px;box-shadow:0 0 2px #3A454B}
 .k{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;text-align:center;text-transform:uppercase;letter-spacing:.03em}
 .knobs{display:flex;flex-wrap:nowrap;gap:10px 12px;min-height:0}
 canvas{display:block;width:100%;background:#FFFFFF;border:1.5px solid var(--line);border-radius:3px}
@@ -62,7 +62,7 @@ main{display:grid;grid-template-columns:1fr;grid-template-rows:1fr 1fr;height:au
 .tools button,.tools select{padding:2px 6px;font-size:10px}
 .knobs{flex:1;display:flex;flex-wrap:nowrap;justify-content:space-evenly;align-items:center;gap:4px;min-height:0}
 .dial{width:var(--d);height:var(--d)}
-.dial::before{left:0;top:0;right:0;bottom:0;width:auto;height:auto;margin:0;border-radius:0;box-shadow:none;transform-origin:50% 50%;background:linear-gradient(#FFFFFF,#FFFFFF) 50% 9%/4% 24% no-repeat}
+.dial::before{left:0;top:0;right:0;bottom:0;width:auto;height:auto;margin:0;border-radius:0;box-shadow:none;transform-origin:50% 17px;background:linear-gradient(#FFFFFF,#FFFFFF) 50% 9%/4% 24% no-repeat}
 .k{font-size:clamp(9px,1vw,12px);gap:4px}
 .src{justify-content:space-between}
 .src .row{flex-wrap:wrap;justify-content:space-evenly}
@@ -99,8 +99,8 @@ label{font-size:11px}
 .led{width:8px;height:8px;border-radius:50%;background:var(--line);flex:none}
 .led.on{background:var(--accent)}
 canvas{background:#3A454B;border:1.5px solid #FFFFFF;border-radius:2px;display:block;width:100%}
-.dial{--r:-135deg;width:48px;height:48px;border-radius:50%;background:#3A454B;box-shadow:none;position:relative;cursor:ns-resize;touch-action:none;flex:none;border:1.5px solid #FFFFFF}
-.dial::before{content:"";position:absolute;left:50%;top:5px;width:2.5px;height:8px;margin-left:-1.25px;background:#FFFFFF;border-radius:1.5px;transform-origin:50% 50%;transform:rotate(var(--r));box-shadow:0 0 2px #3A454B}
+.dial{--r:-135deg;width:48px;height:48px;border-radius:50%;background:#3A454B;box-shadow:none;position:relative;cursor:ns-resize;touch-action:none;flex:none;border:1.5px solid #FFFFFF;transform:rotate(var(--r));transform-origin:50% 50%}
+.dial::before{content:"";position:absolute;left:50%;top:4px;width:3px;height:18px;margin-left:-1.5px;background:#FFFFFF;border-radius:1.5px;box-shadow:0 0 2px #3A454B}
 .knobs,.kr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));justify-items:center;align-content:center;gap:var(--u);flex:1;min-height:0}
 .kr{flex:none}
 .tr{height:auto;align-items:flex-start;gap:calc(var(--u)*1.5);flex:none;display:flex;flex-wrap:wrap}
